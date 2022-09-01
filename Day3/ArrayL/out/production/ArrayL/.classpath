@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="Day4/untitled1/src/|Day5/Day5/src/|Day3/ArrayL/src/|Day3/Demo/src/|Day4/ExceptionHandling/src/|Day4/Person/src/|Day4/untitled/src/|Day3/Shapes/src/|Day7/lambdaFuncs/src/|Sharath/|Day8/StreamInJava/src/|Day8/Assignment2/src/|Day8/SetPractices/src/|Day6/GenericProgs/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="Day3/ArrayL/src"/>
+	<classpathentry kind="src" path="Day3/Demo/src"/>
+	<classpathentry kind="src" path="Day3/Shapes/src"/>
+	<classpathentry kind="src" path="Day4/ExceptionHandling/src"/>
+	<classpathentry kind="src" path="Day4/Person/src"/>
+	<classpathentry kind="src" path="Day4/untitled/src"/>
+	<classpathentry kind="src" path="Day4/untitled1/src"/>
+	<classpathentry kind="src" path="Day5/Day5/src"/>
+	<classpathentry kind="src" path="Day6/GenericProgs/src"/>
+	<classpathentry kind="src" path="Day7/lambdaFuncs/src"/>
+	<classpathentry kind="src" path="Day8/Assignment2/src"/>
+	<classpathentry kind="src" path="Day8/SetPractices/src"/>
+	<classpathentry kind="src" path="Day8/StreamInJava/src"/>
+	<classpathentry kind="src" path="Sharath"/>
+	<classpathentry kind="output" path="Day3/ArrayL/out/production/ArrayL"/>
+</classpath>

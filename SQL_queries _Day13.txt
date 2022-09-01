@@ -1,0 +1,72 @@
+1.create table Student
+    -> (USN varchar(25) primary key,
+    -> Name varchar(40),
+    -> Age int not null);
+
+2.create table student1 as (select USN,Name from student);
+
+3.create table student2 as (select Name as st_Name, USN as st_USN from student);
+
+4. create table student_new like student;
+
+5. insert into student values("19EC415","Sharath",22),
+("123","abc",20),
+("456","xyz",21),
+("111","mno",23),
+("222","pqr",24);
+
+
+6. select * from student;
+select * from student1;
+select * from student2;
+select * from student_new;
+
+7. create table student3 as (select USN,Name from student);
+
+8.create table student4 as (select Name as st_Name, USN as st_USN from student);
+
+9. select * from student3;
+select * from student4;
+
+10. insert into student2 (select * from student4);
+
+11. insert into student_new (select * from student where age=21);
+
+12.  insert into student values("333","stu",24),
+("444","asz",21),
+("555","rst",25);
+
+13. select * from student;
+
+14. select Name,USN from student_new;
+
+15. select Name,USN from student where age < 23;
+
+16. select * from student where age > 22;
+
+01 . update student_new
+    -> set age = 21;
+
+02. update student
+    -> set Age = 21, Name = "ABC"
+    -> where USN = "4XY22CS025";
+
+03. delete from student3;
+
+04. delete from student_new where age = 23;
+
+05. alter table student
+    -> add marks1 int,
+    -> add marks2 int,
+    -> add marks3 int;
+
+06.  alter table student
+    -> add total int after USN;
+
+07. alter table student
+    -> modify total int after Name;
+
+08. alter table student
+    -> drop column marks3;
+
+09.  drop table student4;
