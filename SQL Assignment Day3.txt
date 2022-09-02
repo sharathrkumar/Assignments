@@ -1,0 +1,57 @@
+Employee(Employee_ID, First_Name, Last_Name,  Hire_Date, Job_ID, Salary, Manager_ID, Department_ID) 
+
+Job_History(Employee_ID, Start_Date, End_Date, Job_ID, Depertmrnt_ID) 
+
+Department(Dpt_Code, Dpt_Name, Dpt_Allotment) 
+
+//////Creating Tables//////////
+
+
+ create table department(
+    -> dept_code varchar(25),
+    -> dept_name varchar(25),
+    -> dept_allotment float,
+    -> primary key (dept_code));
+
+create table Employee(
+    -> Employee_id varchar (25),
+    -> First_name varchar(25) not null,
+    -> Last_name varchar(25) not null,
+    -> Hire_date date,
+    -> job_id varchar(25),
+    -> salary float,
+    -> manager_id varchar(25),
+    -> department_id varchar(25),
+    -> primary key (employee_id));
+    -> foreign key (department_id) references department(dept_code)
+
+create table job_history(
+    -> Employee_id varchar(25),
+    -> Start_date date,
+    -> end_date date,
+    -> job_id varchar(25),
+    -> Department_id varchar(25),
+    -> foreign key (employee_id) references employee(employee_id));
+
+
+ create table department(
+    -> dept_code varchar(25),
+    -> dept_name varchar(25),
+    -> dept_allotment float,
+    -> primary key (dept_code));
+
+ Write the sql query for the above
+
+1.Display the full name (first and last), hire date, salary, and department number for those employees whose first name does not contain the letter M. The result set must be in ascending order by department number. 
+
+ANS 
+01.select concat(first_name," ",last_name) as Full_name,hire_date,salary,department_id from employee
+    -> where first_name not like "a%"
+    -> order by department_id asc;
+
+2.Display the ID for those employees who did two or more jobs in the past. 
+
+ANS
+02. select employee_id from job_history
+    -> group by employee_id
+    -> having count(employee_id)>1;

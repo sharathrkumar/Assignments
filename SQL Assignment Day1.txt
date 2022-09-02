@@ -1,0 +1,107 @@
+1.Create a table Student with fields USN, Name, Age. 
+
+Apply following constraint at the column level at time of table creation: 
+
+Primary Key on USN 
+
+NOT NULL on Age
+Ans: create table Student
+    -> (USN varchar(25) primary key,
+    -> Name varchar(40),
+    -> Age int not null);
+
+2. Create table Student1 selecting USN, Name  from Student. 
+Ans: create table student1 as (select USN,Name from student);
+
+3. Create table Student2 selecting USN, Name from Student, but rename them as st_USN, st_Name in new table.
+Ans: create table student2 as (select Name as st_Name, USN as st_USN from student);
+
+4. Create table Student_new selecting all the columns from Student.
+Ans: create table student_new like student;
+
+5. Insert 5 records to Student table 
+Ans: insert into student values("19EC415","Sharath",22),
+("123","abc",20),
+("456","xyz",21),
+("111","mno",23),
+("222","pqr",24);
+
+
+6. Retrieve contents of all the three tables
+Ans: select * from student;
+select * from student1;
+select * from student2;
+select * from student_new;
+
+7. Create table Student3 selecting USN, Name from Student  
+Ans: create table student3 as (select USN,Name from student);
+
+8. Create table Student4 selecting USN, Name from Student but rename them as st_USN, st_Name in new table. 
+Ans: create table student4 as (select Name as st_Name, USN as st_USN from student);
+
+9. Retrieve contents of Student3 and Student4 tables. 
+Ans: select * from student3;
+select * from student4;
+
+10. Insert all the records of Student3 to Student2. 
+Ans: insert into student2 (select * from student4);
+
+11. Insert USN, Age values to the Student_new table from Student table of those students whose age is 21. 
+Ans: insert into student_new (select * from student where age=21);
+
+12. Insert 3 more records to Student table interactively(Using only one INSERT INTO statement) 
+Ans: insert into student values("333","stu",24),
+("444","asz",21),
+("555","rst",25);
+
+13. Retrieve all the contents of Student table 
+Ans: select * from student;
+
+14. Retrieve USN, Name of all Students from Student_new table  
+Ans: select Name,USN from student_new;
+
+15. Retrieve USN and Name of all Students from Student table whose age is less than 23. 
+Ans: select Name,USN from student where age < 23;
+
+16. Retrieve all data of students  from Student table whose age is more than 22. 
+Ans: select * from student where age > 22;
+
+
+
+
+
+01 .Update Age of all students as 20 in Student_new table.
+Ans: update student_new
+    -> set age = 20;
+
+02. Update Age as 21 and name as 'ABC' of student whose USN is  4XY22CS025 in Student table
+Ans: update student
+     -> set Age = 21, Name = "ABC"
+     -> where USN = "4XY22CS025";
+
+03. Delete all the records of Student3 table
+Ans: delete from student3;
+
+04. Delete records of employees whose age is 23 from Student_new table.
+Ans: delete from student_new where age = 23;
+
+05. Add three columns Marks1, Marks2 and Marks3 to the Student table. 
+Ans: alter table student
+    -> add marks1 int,
+    -> add marks2 int,
+    -> add marks3 int;
+
+06.  Add Total column to the Student table with column specification as number(2) 
+Ans: alter table student
+    -> add total int after USN;
+
+07. Change the column specification of Total to number(3). 
+Ans: alter table student
+    -> modify total int after Name;
+
+08. Drop column Marks3 from Student table 
+Ans: alter table student
+    -> drop column marks3;
+
+09. Drop the table Student4 
+Ans: drop table student4;

@@ -1,0 +1,49 @@
+Orders(Order_no, purchase_amt, order_date, customer_id, salesman_id) 
+
+Customer(Cust_id, cust_name, city,grade, salesman_id) 
+
+Salesman(salesman_id, name, city) 
+
+ 
+
+SQL: 
+
+01. Display those customers who are neither belongs to the city New York nor grade value is more than 100.
+Ans: select custname from customer where grade < 100 and city != "New York";
+
+02. Find the highest purchase amount ordered by each customer along with their ID.
+Ans: select cust_id, custname from customer where cust_id = (select customer_id from orders where purchase_amt = (select max(purchase_amt) from orders ));
+
+03. Find the highest purchase amount along with customer ID and order date, for those customers who have a higher purchase amount in a day which is within the range 2000 and 6000. 
+Ans: select cust_id,custname from customer where cust_id = (select customer_id from orders where order_date = "14-8-2022" and purchase_amt = (select max(purchase_amt) from orders where purchase_amt between 2000 and 6000));
+
+04. Display the highest grade for each of the cities of the customers.
+Ans: select city,max(grade) from customer group by city;
+
+05. Display names of those customers and salesmen who lives in the same city
+Ans: select customer.custname,salesman.name, customer.city from customer
+    -> inner join salesman on salesman.city = customer.city;
+
+06. Display each order number followed by the name of the customers who made the order.
+Ans: select Orders.order_no, customer.custname from customer
+    -> inner join orders on orders.customer_id = customer.cust_id;
+
+07. Display the highest purchase amount on a date '17-Aug-2015' for each salesman along with their ID
+Ans: select max(orders.purchase_amt),orders.salesman_id,salesman.name from orders
+    -> inner join salesman
+    -> on orders.salesman_id=salesman.salesman_id
+    -> where order_date='17-08-2015'
+    -> group by salesman.name;
+08. Display only those customers whose grade are higher than every customer in New York. 
+Ans: select cust_id , custname, max(grade) from customer
+    -> where city = "New York"
+    -> group by city;
+09. Display all the orders issued by the salesman 'Paul Adam'. 
+Ans: select order_no, purchase_amt,order_date from orders
+    -> inner join salesman on orders.salesman_id = salesman.salesman_id
+    -> where salesman.name = "Paul Adam";
+
+10. Write a query to find all orders attributed to a salesman in New york.
+Ans: select order_no, purchase_amt,order_date from orders
+    -> inner join salesman on orders.salesman_id = salesman.salesman_id
+    -> where salesman.city = "New York";
