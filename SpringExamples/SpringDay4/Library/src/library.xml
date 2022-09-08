@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context = "http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="borrower" class="Borrower" parent="library">
+        <constructor-arg value="Sharath"/>
+        <property name="loans">
+            <list>
+                <value>Cosmos</value>
+                <value>2 States</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="borrower2" class="Borrower" parent="library">
+        <constructor-arg value="ABCD"/>
+        <property name="loans">
+            <list>
+                <value>The Monk Who Sold his Ferrari</value>
+                <value>To Kill a Mocking Bird</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="borrower3" class="Borrower" parent="library">
+        <constructor-arg value="XYZ"/>
+        <property name="loans">
+            <list>
+                <value>Auto Biography</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id = "library" class="Library">
+        <property name="books">
+            <list>
+                <value>Life is What you make it</value>
+                <value>One Night at CallCenter</value>
+                <value>She FriendZoned my Love</value>
+            </list>
+        </property>
+        <property name="borrowerList">
+            <list>
+                <ref bean = "borrower"/>
+                <ref bean = "borrower2"/>
+                <ref bean = "borrower3"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="clerk" class="Clerk" parent="library"/>
+
+    <bean id="librarian" class="Librarian" parent="library"/>
+</beans>
